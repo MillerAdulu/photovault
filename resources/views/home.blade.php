@@ -14,7 +14,15 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    {{-- @if (App\ProviderCredential::where('user_id')) --}}
+                        
+                    {{-- @else --}}
+                        
+                    {{-- @endif --}}
+                    <a href="/login/facebook" class="btn btn-primary">
+                        Get Facebook Pictures
+                    </a>
+
                 </div>
             </div>
         </div>
