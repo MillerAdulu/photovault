@@ -14,13 +14,8 @@
                         </div>
                     @endif
 
-                    {{-- @if (App\ProviderCredential::where('user_id')) --}}
-                        
-                    {{-- @else --}}
-                        
-                    {{-- @endif --}}
                     <a href="/login/facebook" class="btn btn-primary">
-                        Get Facebook Pictures
+                        Login to Facebook
                     </a>
 
                 </div>
