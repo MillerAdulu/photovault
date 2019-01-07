@@ -14,7 +14,10 @@ class FacebookController extends Controller
     
     public function redirectToProvider()
     {
-        return Socialite::driver($this->provider)->redirect();
+        return Socialite::driver($this->provider)->scopes([
+            'user_photos',
+        ])
+        ->redirect();
     }
 
     public function handleProviderCallback()
