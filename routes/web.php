@@ -23,3 +23,11 @@ Route::get('login/facebook', 'FacebookController@redirectToProvider');
 Route::get('login/facebook/callback', 'FacebookController@handleProviderCallback');
 
 Route::get('photos/facebook', 'PhotoController@facebookPhotos');
+
+
+Route::get('/blog', 'PageController@blog');
+
+
+Route::get('/contact', 'PageController@contact');
+
+Route::get('/about', 'PageController@about');

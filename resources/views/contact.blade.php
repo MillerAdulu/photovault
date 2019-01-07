@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Contact Us')
     
 @section('content')
 <div class="outer-container">
@@ -10,6 +10,7 @@
                     <div class="col">
                         <ul class="breadcrumbs flex align-items-center">
                             <li><a href="/">Home</a></li>
+                            <li><a href="/contact">Contact Us</a></li>
                         </ul><!-- .breadcrumbs -->
                     </div><!-- .col -->
                 </div><!-- .row -->
@@ -27,13 +28,13 @@
                         <div class="content-area">
                             <header class="entry-header">
                                 <div class="post-meta">
-                                    <a href="/about">Welcome</a>
+                                    <a href="/contact">Contact Us</a>
                                 </div><!-- .meta-post -->
     
-                                <h1>Welcome</h1>
+                                <h1>Contact Us</h1>
     
                             <div class="entry-content">
-                                <p>Get your social media pictures printed and sent to you. </p>
+                                <p>Reach us on +254 703 175 638</p>
                             </div><!-- .entry-content -->
                         </div><!-- .content-area -->
                     </div><!-- .col-12 -->
