@@ -11,22 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@welcome');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('login/facebook')->group(function() {
+    Route::get('/', 'FacebookController@redirectToProvider');
+    Route::get('/callback', 'FacebookController@handleProviderCallback');
+});
 
-Route::get('login/facebook', 'FacebookController@redirectToProvider');
-Route::get('login/facebook/callback', 'FacebookController@handleProviderCallback');
+Route::prefix('photos')->group(function() {
+    Route::get('facebook', 'PhotoController@facebookPhotos');
+});
 
-Route::get('photos/facebook', 'PhotoController@facebookPhotos');
-
-
-Route::get('/blog', 'PageController@blog');
-
+Route::prefix('blog')->group(function() {
+    Route::get('/', 'PageController@blog');
+});
 
 Route::get('/contact', 'PageController@contact');
 
