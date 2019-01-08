@@ -51,12 +51,6 @@
 
         @endif
 
-        <div class="row">
-            <div class="portfolio-content">
-                Unable to connect to Facebook at this time. Please try again later
-            </div>
-        </div>
-
     </div>
     <!-- .container -->
 </div>
