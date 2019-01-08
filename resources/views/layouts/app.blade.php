@@ -26,7 +26,7 @@
     @yield('content')
 
     <div class="scroll-down flex flex-column justify-content-center align-items-center d-none d-lg-block">
-        <span class="arrow-down flex justify-content-center align-items-center"><img src="images/arrow-down.png" alt="arrow"></span>
+        <span class="arrow-down flex justify-content-center align-items-center"><img src="{{ asset('images/arrow-down.png') }}" alt="arrow"></span>
         <span class="scroll-text">Scroll Down</span>
     </div>
     <!-- .scroll-down -->
