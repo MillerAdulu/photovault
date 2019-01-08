@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class PhotoController extends Controller
 {
-    private $apiHost = 'https://graph.facebook.com';
-
     public function facebookPhotos(Request $request)
     {
-        if($this->isConnected())
+
+        if($this->isLoggedInToFacebook())
         {
+
             $user = ProviderCredential::where([
                 ['user_id', Auth::id()],
                 ['provider', 'facebook']
@@ -23,30 +23,27 @@ class PhotoController extends Controller
 
             $facebookClient = new Client;
 
-            $photos = json_decode($facebookClient->get($this->apiHost . '/'. $user->provider_given_id .'/photos/uploaded', [
+            $photos = json_decode($facebookClient->get('https://graph.facebook.com/'. $user->provider_given_id .'/photos/uploaded', [
                 'query' => [
                     'access_token' => $user->token,
                     'fields' => 'images,name,album'
                 ],
             ])->getBody());
-
-            $photoData = $photos->data;
-        } else $photoData = null;
-
-        return view('photos.facebook', ['photos' => $photoData]);
-    }
-
-    public function isConnected()
-    {
-        $connected = @fsockopen($this->apiHost, 80|443);
-
-        if($connected) {
-            $isConnected = true;
-            fclose($connected);
-        } else {
-            $isConnected = false;
+        } 
+        else if(!$this->isLoggedInToFacebook()) {
+            return redirect()->action('FacebookController@redirectToProvider');
         }
 
-        return $isConnected;
+        return view('photos.facebook', ['photos' => $photos->data]);
+    }
+
+    public function isLoggedInToFacebook()
+    {
+        if(ProviderCredential::where([
+            ['user_id', Auth::id()],
+            ['provider', 'facebook']
+        ])->first() == null
+        ) return false;
+        else return true;
     }
 }
