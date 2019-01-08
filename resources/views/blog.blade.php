@@ -3,18 +3,18 @@
 @section('content')
 <div class="outer-container blog-page">
     <div class="container">
-            <div class="row">
-                    <div class="col">
-                        <ul class="breadcrumbs flex align-items-center">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/blog">Blog</a></li>
-                        </ul>
-                        <!-- .breadcrumbs -->
-                    </div>
-                    <!-- .col -->
-            @include('partials.authlinks')
-                </div>
-                <!-- .row -->
+        <div class="row">
+            <div class="col">
+                <ul class="breadcrumbs flex align-items-center">
+                    <li><a href="/">Home</a></li>
+                    <li>Blog</li>
+                </ul>
+                <!-- .breadcrumbs -->
+            </div>
+            <!-- .col -->
+    @include('partials.authlinks')
+        </div>
+        <!-- .row -->
     </div>
     <div class="container-fluid">
 

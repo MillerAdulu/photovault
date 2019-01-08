@@ -8,7 +8,7 @@
                 <div class="col">
                     <ul class="breadcrumbs flex align-items-center">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
+                        <li>Contact Us</li>
                     </ul>
                     <!-- .breadcrumbs -->
                 </div>
