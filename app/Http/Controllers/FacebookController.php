@@ -52,6 +52,6 @@ class FacebookController extends Controller
             ]);
         }
 
-        return redirect()->route('home');
+        return redirect('photos/facebook');
     }
 }
