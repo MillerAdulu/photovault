@@ -17,8 +17,11 @@
         </div>
         <!-- .row -->
 
-        @if (isset($photos) && count($photos) > 0)
-
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif @if (isset($photos) && count($photos) > 0)
         <div class="row">
 
             @foreach ($photos as $photo)
@@ -30,13 +33,28 @@
                     </figure>
 
                     <div class="entry-content flex flex-column align-items-center justify-content-center">
-                        <h3><a>{{ $photo->album->name }}</a></h3>
+                        @if(App\Image::where([ ['album_id', App\Album::where([ ['user_id', Auth::id()], ['paid', false], ])->first()->id], ['provider_id',
+                        $photo->id], ])->first() == null)
+                        <form action="/image" method="POST">
+                            @csrf
+                            <input type="hidden" name="providerId" value="{{ $photo->id }}">
+                            <input type="hidden" name="uri" value="{{ $photo->images[0]->source }}">
+                            <button type="submit">Add to Album</button>
+                        </form>
+                        @else
+                        <form action="/image/{{$photo->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Remove from Album</button>
+                            <form>
+                                @endif
+                                <h3><a>{{ $photo->album->name }}</a></h3>
 
-                        <ul class="flex flex-wrap justify-content-center">
-                            @if (isset($photo->name))
-                            <li><a>{{ $photo->name }}</a></li>
-                            @endif
-                        </ul>
+                                <ul class="flex flex-wrap justify-content-center">
+                                    @if (isset($photo->name))
+                                    <li><a>{{ $photo->name }}</a></li>
+                                    @endif
+                                </ul>
                     </div>
                     <!-- .entry-content -->
                 </div>

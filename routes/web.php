@@ -31,3 +31,12 @@ Route::prefix('blog')->group(function() {
 Route::get('/contact', 'PageController@contact');
 
 Route::get('/about', 'PageController@about');
+
+Route::prefix('album')->group(function() {
+    Route::post('/', 'AlbumController@store');
+});
+
+Route::prefix('image')->group(function() {
+    Route::post('/', 'ImageController@store');
+    Route::delete('/{image}', 'ImageController@destroy');
+});
