@@ -9,6 +9,7 @@
                 <ul class="breadcrumbs flex align-items-center">
                     <li><a href="/">Home</a></li>
                     <li><a href="/my/albums">{{ $album->name }}</a></li>
+                    <li>Cost: {{ $cost }} KES </li>
 
                 </ul>
                 <!-- .breadcrumbs -->
@@ -36,7 +37,7 @@
                     <div class="entry-content flex flex-column align-items-center justify-content-center">
                         <form action="/my/image/{{$image->id}}" method="POST">
                             @csrf @method('DELETE')
-                            <button type="submit">Remove from Album</button>
+                            <button type="submit" class="btn site-btn">Remove</button>
                         </form>
                     </div>
                     <!-- .entry-content -->

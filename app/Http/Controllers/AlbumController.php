@@ -27,9 +27,13 @@ class AlbumController extends Controller
     public function album($album)
     {
         $album = Album::find($album);
+
         $images = Image::where([
             ['album_id', $album->id]
         ])->get();
-        return view('album', ['album' => $album, 'images' => $images]);
+
+        $cost = count($images) * 40;
+        
+        return view('album', ['album' => $album, 'images' => $images, 'cost' => $cost]);
     }
 }
