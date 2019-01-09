@@ -39,13 +39,13 @@
                             @csrf
                             <input type="hidden" name="providerId" value="{{ $photo->id }}">
                             <input type="hidden" name="uri" value="{{ $photo->images[0]->source }}">
-                            <button type="submit">Add to Album</button>
+                            <button type="submit"  class="btn site-btn">Add to Album</button>
                         </form>
                         @else
                         <form action="/image/{{$photo->id}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Remove from Album</button>
+                            <button type="submit"  class="btn site-btn">Remove from Album</button>
                             <form>
                                 @endif
                                 <h3><a>{{ $photo->album->name }}</a></h3>
