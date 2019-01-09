@@ -22,6 +22,8 @@
             @endif
         </li>
 
+        <li><a href="/my/albums">Mine</a></li>
+
         <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                      document.getElementById('logout-form').submit();">
                                                         {{ __('Logout') }}

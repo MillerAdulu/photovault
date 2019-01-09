@@ -31,4 +31,10 @@ class ImageController extends Controller
         Image::destroy($image->id);
         return back()->with('status', 'Photo removed from this album');
     }
+
+    public function remove($image)
+    {
+        Image::destroy($image);
+        return back()->with('status', 'Photo removed from this album');
+    }
 }

@@ -34,6 +34,12 @@ Route::get('/about', 'PageController@about');
 
 Route::prefix('album')->group(function() {
     Route::post('/', 'AlbumController@store');
+    Route::get('/{album}', 'AlbumController@album');
+});
+
+Route::prefix('my')->group(function() {
+    Route::get('/albums', 'AlbumController@albums');
+    Route::delete('/image/{image}', 'ImageController@remove');
 });
 
 Route::prefix('image')->group(function() {
