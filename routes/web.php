@@ -15,12 +15,12 @@ Route::get('/', 'PageController@welcome');
 
 Auth::routes();
 
-Route::prefix('login/facebook')->group(function() {
+Route::group(['prefix' => 'login/facebook', 'middleware' => 'auth'], function() {
     Route::get('/', 'FacebookController@redirectToProvider');
     Route::get('/callback', 'FacebookController@handleProviderCallback');
 });
 
-Route::prefix('photos')->group(function() {
+Route::group(['prefix' => 'photos', 'middleware' => 'auth'], function() {
     Route::get('facebook', 'PhotoController@facebookPhotos');
 });
 
@@ -32,17 +32,17 @@ Route::get('/contact', 'PageController@contact');
 
 Route::get('/about', 'PageController@about');
 
-Route::prefix('album')->group(function() {
+Route::group(['prefix' => 'album', 'middleware' => 'auth'], function() {
     Route::post('/', 'AlbumController@store');
     Route::get('/{album}', 'AlbumController@album');
 });
 
-Route::prefix('my')->group(function() {
+Route::group(['prefix' => 'my', 'middleware' => 'auth'], function() {
     Route::get('/albums', 'AlbumController@albums');
     Route::delete('/image/{image}', 'ImageController@remove');
 });
 
-Route::prefix('image')->group(function() {
+Route::group(['prefix' => 'image', 'middleware' => 'auth'], function() {
     Route::post('/', 'ImageController@store');
     Route::delete('/{image}', 'ImageController@destroy');
 });
