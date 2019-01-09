@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Photo Printer | @yield('title')</title>
+    <title>PhotoVault | @yield('title')</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
