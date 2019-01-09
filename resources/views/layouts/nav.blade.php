@@ -26,11 +26,11 @@
     <!-- .site-branding -->
 
     <ul class="main-menu flex flex-column justify-content-center">
-        <li class="current-menu-item"><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/photos/facebook">Facebook</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li @if(Route::current()->uri == '/') class="current-menu-item" @endif><a href="/">Home</a></li>
+        <li @if(Route::current()->uri == 'about') class="current-menu-item" @endif><a href="/about">About</a></li>
+        <li @if(Route::current()->uri == 'photos/facebook') class="current-menu-item" @endif><a href="/photos/facebook">Facebook</a></li>
+        <li @if(Route::current()->uri == 'blog') class="current-menu-item" @endif><a href="/blog">Blog</a></li>
+        <li @if(Route::current()->uri == 'contact') class="current-menu-item" @endif><a href="/contact">Contact</a></li>
     </ul>
 
     <p>
