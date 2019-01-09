@@ -12,7 +12,7 @@
             <form action="/album" method="POST">
                 @csrf
                 <input type="text" name="name" required>
-                <button type="submit">New Album</button>
+                <button type="submit" class="btn site-btn">New Album</button>
             </form>
             @else
             Album: {{ App\Album::where([

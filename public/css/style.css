@@ -1094,8 +1094,7 @@ a:active {
 }
 
 
-.site-btn {
+.site-btn, .card-site {
     background-color: #f0437e;
     color: whitesmoke;
-
 }
